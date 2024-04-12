@@ -15,14 +15,16 @@ To try out the game, follow these steps:
 2. Navigate to the project directory:
      /client for client, /server for server
 
-4. Install dependencies:
-    npm install
+3. Install dependencies:
+    npm install in /client and /server
+
+4. edit /src/utils/socket "const socket" with your local ip address
 
 5. Start the application:
     npm run in /client
     node index.js in /server
 
-7. Open your browser and visit `http://localhost:3000` to start playing!
+6. Open your browser and visit `http://localhost:3000` to start playing!
 
 ## Features
 
@@ -64,12 +66,14 @@ Kokeillaksesi peliä, noudata seuraavia vaiheita:
 - 2. Siirry projektin hakemistoon:
 
 - 3. Asenna riippuvuudet:
+
+- 4. editoi /src/utils/socket "const socket" arvoa paikallisella ip-osoitteellasi 
     
-- 4. Käynnistä sovellus:
+- 5. Käynnistä sovellus:
     npm run -> /client
     node index.js -> /server
 
-- 5. Avaa selain ja siirry osoitteeseen `http://localhost:3000` aloittaaksesi pelaamisen!
+- 6. Avaa selain ja siirry osoitteeseen `http://localhost:3000` aloittaaksesi pelaamisen!
 
 ## Ominaisuudet
 
