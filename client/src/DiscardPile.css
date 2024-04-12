@@ -5,8 +5,8 @@
     margin: 20px auto;
     background-color: #f39c12;
     border-radius: 8px;
-    max-width: 90%; /* Limit the width, adjust as necessary */
-    overflow-x: auto; /* Allows horizontal scrolling if the content exceeds the width */
+    max-width: 90%; 
+    overflow-x: auto; 
   }
   
   .discardPile h3 {
@@ -16,13 +16,13 @@
   
   .cards {
     display: flex;
-    flex-direction: row; /* Arrange cards in a horizontal row */
+    flex-direction: row; 
     gap: 10px;
   }
   
   .card {
     cursor: pointer;
-    transition: transform 0.2s; /* Animation for slight raise effect on hover */
+    transition: transform 0.2s; 
   }
 
   .selected {
@@ -30,5 +30,5 @@
   }
   
   .card:hover {
-    transform: translateY(-5px); /* Slight raise effect on hover */
+    transform: translateY(-5px);
   }
