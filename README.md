@@ -6,7 +6,20 @@ This repository contains a React application that digitalizes a unique card game
 
 The 500 Card Game is a great game, documentation of rules under development
 
-## Getting Started
+## Getting StartedTo try out the game, follow these steps:
+
+    Clone the repository:
+
+    Navigate to the project directory: /client for client, /server for server
+
+    Install dependencies: npm install in /client and /server
+
+    edit /src/utils/socket "const socket" with your local ip address
+
+    Start the application: npm run in /client node index.js in /server
+
+    Open your browser and visit http://localhost:3000 to start playing!
+
 
 ```bash
 # Clone the repository
@@ -34,7 +47,11 @@ npm run start
 # In /server
 cd server
 node index.js
-'''
+
+# Open your browser and visit:
+http://localhost:3000
+```
+
 
 ### Open your browser and visit:
 http://localhost:3000
@@ -77,21 +94,40 @@ Tämä repositorio sisältää React-sovelluksen, joka digitalisoi ainutlaatuise
 
 ## Aloitusohjeet
 
-Kokeillaksesi peliä, noudata seuraavia vaiheita:
 
-- 1. Kloonaa repositorio:
+### Instructions in Finnish:
 
-- 2. Siirry projektin hakemistoon:
+```bash
+# Kloonaa repositorio
+git clone https://github.com/yourusername/your-repo-name.git
 
-- 3. Asenna riippuvuudet:
+# Siirry projektihakemistoon:
+# Asiakasohjelmalle
+cd your-repo-name/client
+# Palvelimelle
+cd your-repo-name/server
 
-- 4. editoi /src/utils/socket "const socket" arvoa paikallisella ip-osoitteellasi 
-    
-- 5. Käynnistä sovellus:
-    npm run -> /client
-    node index.js -> /server
+# Asenna riippuvuudet sekä /client että /server hakemistoissa
+cd client
+npm install
+cd ../server
+npm install
 
-- 6. Avaa selain ja siirry osoitteeseen `http://localhost:3000` aloittaaksesi pelaamisen!
+# Muokkaa socket-määritystiedostoa paikallisella IP-osoitteellasi
+nano client/src/utils/socket.js
+
+# Käynnistä sovellus:
+# /client-kansiossa
+cd client
+npm run start
+# /server-kansiossa
+cd server
+node index.js
+```
+
+# Avaa selain ja siirry osoitteeseen:
+http://localhost:3000
+
 
 ## Ominaisuudet
 
