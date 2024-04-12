@@ -3,8 +3,8 @@ import './App.css';
 import GameBoard from './GameBoard';
 import StartGameButton from './StartGameButton';
 import JoinGameComponent from './JoinGameComponent';
-import PlayerInfoPanel from './PlayerInfoPanel'; // Import the PlayerInfoPanel
-import socket from './utils/socket'; // Ensure this import path is correct
+import PlayerInfoPanel from './PlayerInfoPanel'; 
+import socket from './utils/socket'; 
 
 function App() {
   const [hasJoined, setHasJoined] = useState(false);
@@ -21,8 +21,6 @@ function App() {
     });
 
     socket.on('updatePlayerTables', (updatedPlayerTables) => {
-      // This expects an object mapping but you're emitting gameState.playerTables directly
-      // Make sure the emitted data structure matches what's being processed here
       setPlayers(currentPlayers => currentPlayers.map(player => ({
         ...player,
         playTable: updatedPlayerTables[player.id] || player.playTable,
@@ -40,12 +38,11 @@ function App() {
       socket.off('updateDiscardPile');
       socket.off('updatePlayerTable');
     };
-  }, []); // Removed [players] to prevent unnecessary re-executions
+  }, []); 
 
   const handleJoin = () => {
     setHasJoined(true);
-    // Emit an event to join the game, handle this in your backend
-    socket.emit('joinGame', { name: 'Player Name' }); // Ensure you're sending the correct player name or data
+    socket.emit('joinGame', { name: 'Player Name' }); 
   };
 
 
