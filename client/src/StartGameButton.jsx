@@ -6,12 +6,11 @@ const StartGameButton = () => {
   const [isStarting, setIsStarting] = useState(false);
 
   const handleStartGame = () => {
-    setIsStarting(true); // Disable button to prevent multiple clicks
+    setIsStarting(true); 
     socket.emit('startGame');
     
-    // Optionally reset isStarting when you receive confirmation the game has started
     socket.on('gameStarted', () => {
-      setIsStarting(false); // Re-enable button or navigate away
+      setIsStarting(false); 
     });
   };
 
