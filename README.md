@@ -39,6 +39,10 @@ To try out the game, follow these steps:
 - HTML
 - JavaScript
 
+## License
+
+This project is licensed under the Zero-Clause BSD License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Acknowledgments
 
@@ -90,7 +94,10 @@ Kokeillaksesi peliä, noudata seuraavia vaiheita:
 
 ## Lisenssi
 
-Tämä projekti on avoimen lähdekoodin ja lisensioitu MIT-lisenssillä. Katso [LICENSE](LICENSE)-tiedosto lisätietoja varten.
+## Lisenssi
+
+Tämä projekti on lisensoitu Zero-Clause BSD -lisenssillä. Lisätietoja löytyy [LICENSE](LICENSE) tiedostosta.
+
 
 ## Kiitokset
 
