@@ -8,23 +8,37 @@ The 500 Card Game is a great game, documentation of rules under development
 
 ## Getting Started
 
-To try out the game, follow these steps:
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/your-repo-name.git
 
-1. Clone the repository:
+# Navigate to the project directory:
+# For client
+cd your-repo-name/client
+# For server
+cd your-repo-name/server
 
-2. Navigate to the project directory:
-     /client for client, /server for server
+# Install dependencies in both /client and /server
+cd client
+npm install
+cd ../server
+npm install
 
-3. Install dependencies:
-    npm install in /client and /server
+# Edit the socket configuration file with your local IP address
+nano client/src/utils/socket.js
 
-4. edit /src/utils/socket "const socket" with your local ip address
+# Start the application:
+# In /client
+cd client
+npm run start
+# In /server
+cd server
+node index.js
+'''
 
-5. Start the application:
-    npm run in /client
-    node index.js in /server
+### Open your browser and visit:
+http://localhost:3000
 
-6. Open your browser and visit `http://localhost:3000` to start playing!
 
 ## Features
 
