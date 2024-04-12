@@ -1,7 +1,7 @@
 // src/components/Hand.jsx
 import React from 'react';
 import Card from './Card';
-import './Hand.css'; // Ensure this CSS file contains styles for .multi-selected and .single-selected
+import './Hand.css'; 
 
 const Hand = ({ cards, onSelectCard, selectedCardIndices }) => {
   return (
@@ -18,7 +18,7 @@ const Hand = ({ cards, onSelectCard, selectedCardIndices }) => {
               : ''
           }`}
         >
-          {/* Assuming Card is a component that takes card details and renders them */}
+          {}
           <Card value={card.value} suit={card.suit} />
         </div>
       ))}
