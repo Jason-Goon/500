@@ -1,7 +1,7 @@
 // src/components/PlayTable.jsx
 import React from 'react';
 import Card from './Card';
-import './PlayerTable.css'; // Create corresponding CSS for layout
+import './PlayerTable.css';
 
 const PlayTable = ({ cards }) => {
     return (
