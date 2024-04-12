@@ -1,0 +1,16 @@
+.gameBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameBoard .actions {
+  margin: 20px 0;
+  display: flex; /* Ensure flex display */
+  flex-direction: row; /* Align children horizontally */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Adds space between the buttons */
+}
+
+/* Add or adjust other styles as needed for DiscardTable, PlayTable, etc. */
+

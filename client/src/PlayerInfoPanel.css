@@ -1,0 +1,44 @@
+/* PlayerInfoPanel.css */
+.playerInfoPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between each player's table */
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.playerInfo {
+  width: 100%; /* Full width to accommodate the play table */
+  border: 1px solid #ddd; /* Optional: adds a border around each player's table */
+  padding: 10px;
+  border-radius: 8px; /* Optional: rounds the corners of the player table container */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
+  background-color: #f9f9f9; /* Light background color for each player's table section */
+}
+
+.playerTableCards {
+  display: flex;
+  flex-direction: row; /* Arrange cards in a row for each player's table */
+  gap: 10px; /* Space between cards */
+  flex-wrap: wrap; /* Allows cards to wrap to next line if width exceeds container */
+}
+
+.selected {
+  outline: 2px solid rgb(87, 22, 22);
+}
+
+.card {
+  padding: 5px 10px;
+  border: 1px solid #ccc; /* Border for cards */
+  border-radius: 4px; /* Rounded corners for cards */
+  background-color: #fff; /* White background for cards */
+  text-align: center; /* Center text within each card */
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 600px) {
+  .playerInfoPanel {
+    align-items: stretch; /* Stretches player info containers to full width on smaller screens */
+  }
+}
