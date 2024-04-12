@@ -9,7 +9,6 @@ const DiscardPile = ({ cards, onSelectCard, selectedIndices }) => {
             <h3>Discard Pile</h3>
             <div className="cards"> {/* cards in a row */}
                 {cards.map((card, index) => (
-                    // Wrap the Card component in a div that can be clicked
                     <div key={index} onClick={() => onSelectCard(index)} 
                          className={`card-container ${selectedIndices.includes(index) ? 'selected' : ''}`}>
                         <Card value={card.value} suit={card.suit} />
