@@ -8,22 +8,9 @@ The 500 Card Game is a great game, documentation of rules under development
 
 ## Getting StartedTo try out the game, follow these steps:
 
-    Clone the repository:
-
-    Navigate to the project directory: /client for client, /server for server
-
-    Install dependencies: npm install in /client and /server
-
-    edit /src/utils/socket "const socket" with your local ip address
-
-    Start the application: npm run in /client node index.js in /server
-
-    Open your browser and visit http://localhost:3000 to start playing!
-
-
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/Jason-Goon/500.git
 
 # Navigate to the project directory:
 # For client
@@ -83,7 +70,6 @@ This project is licensed under the Zero-Clause BSD License - see the [LICENSE](L
 
 
 
-
 # 500 Korttipeli
 
 Tämä repositorio sisältää React-sovelluksen, joka digitalisoi ainutlaatuisen korttipelin, jonka ystäväni perhe on luonut. Nyt sovellus on saatavilla React-sovelluksena.
@@ -99,7 +85,7 @@ Tämä repositorio sisältää React-sovelluksen, joka digitalisoi ainutlaatuise
 
 ```bash
 # Kloonaa repositorio
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/Jason-Goon/500.git
 
 # Siirry projektihakemistoon:
 # Asiakasohjelmalle
