@@ -34,14 +34,11 @@ const GameBoard = () => {
   }, []);
 
   const handleSelectDiscardCard = (index) => {
-    // Toggle selection for multiple discard pile cards
     setSelectedDiscardIndices(prevIndices => {
       const indexPosition = prevIndices.indexOf(index);
       if (indexPosition === -1) {
-        // If not already selected, add to selections
         return [...prevIndices, index];
       } else {
-        // If already selected, remove from selections
         return prevIndices.filter(i => i !== index);
       }
     });
@@ -65,10 +62,9 @@ const GameBoard = () => {
     console.log('playerTables:', playerTables);
     console.log('Selected Player Table Cards:', selectedPlayerTableCards);
 
-    // Assuming selectedPlayerTableCards format is "playerId-cardIndex"
     const cardsFromTables = selectedPlayerTableCards.map(key => {
         const [playerId, cardIndex] = key.split('-');
-        const cardIndexNumber = parseInt(cardIndex, 10); // Ensure cardIndex is a number
+        const cardIndexNumber = parseInt(cardIndex, 10); 
 
         if (!playerTables[playerId] || !playerTables[playerId][cardIndexNumber]) {
             console.error(`No card found for playerId: ${playerId} at index: ${cardIndexNumber}`);
@@ -97,7 +93,6 @@ const GameBoard = () => {
 
   const placeCardsOnPlayerTable = () => {
     const selectedHandCards = selectedCardIndices.map(index => hand[index]);
-    // Adjust playData to include multiple discard indices
     const playData = {
       handCards: selectedHandCards,
       discardIndices: selectedDiscardIndices,
@@ -123,8 +118,7 @@ const GameBoard = () => {
     socket.emit('drawCard');
   };
 
-  // The rest of your GameBoard logic here...
-  console.log('GameBoard - playerTables:', playerTables); // Log the state of playerTables
+  console.log('GameBoard - playerTables:', playerTables); 
 
   return (
     <div className="gameBoard">
