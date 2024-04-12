@@ -1,4 +1,4 @@
-# 500 Card Game
+# 500 Card Game (Demo)(In development)
 
 This repository contains a React application that digitalizes a unique card game created by my friend's family. Now as a react application.
 
