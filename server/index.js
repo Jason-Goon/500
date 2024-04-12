@@ -25,7 +25,6 @@ let gameState = {
   playerTables: {},
 };
 
-// Function definitions (e.g., generateDeck, shuffle, dealCardsToPlayers, initializeGame) go here
 function generateDeck(includeJokers = true) {
   const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
   const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
@@ -38,7 +37,6 @@ function generateDeck(includeJokers = true) {
   });
 
   if (includeJokers) {
-    // Adding three Jokers with unique identifiers for differentiation
     deck.push({ value: 'Joker', suit: 'None', identifier: 'Joker1' });
     deck.push({ value: 'Joker', suit: 'None', identifier: 'Joker2' });
     deck.push({ value: 'Joker', suit: 'None', identifier: 'Joker3' });
@@ -56,15 +54,14 @@ function shuffle(deck) {
   return deck;
 }
 function dealCardsToPlayers() {
-  const CARDS_PER_PLAYER = 7; // Adjust based on your game rules
+  const CARDS_PER_PLAYER = 7; 
 
   gameState.players.forEach(player => {
-    player.hand = gameState.deck.splice(0, CARDS_PER_PLAYER); // Deal 7 cards to each player
-    io.to(player.id).emit('updateHand', player.hand); // Notify each player of their new hand
+    player.hand = gameState.deck.splice(0, CARDS_PER_PLAYER); 
+    io.to(player.id).emit('updateHand', player.hand); 
   });
 
-  // If needed, also handle the scenario where cards are placed on the table at the start
-  // For example, flipping the first card of the remaining deck to start the discard pile
+  
   if (gameState.deck.length > 0) {
     gameState.discardPile.push(gameState.deck.shift());
     io.emit('updateDiscardPile', gameState.discardPile); // Update all clients with the new discard pile state
@@ -104,12 +101,10 @@ function isValidPlay(cards) {
   return isThreeOfAKind(cards) || isStraightFlush(cards);
 }
 
-// Keep the generateDeck and shuffle functions here
-
 function initializeGame() {
   gameState = {
     players: [],
-    deck: generateDeck(), // This will now work as expected
+    deck: generateDeck(), 
     gameStarted: false,
     discardPile: [],
     playerTables: {},
@@ -121,7 +116,7 @@ io.on('connection', (socket) => {
   console.log(`New player connected: ${socket.id}`);
 
   socket.on('joinGame', (data) => {
-    const playerName = typeof data === 'object' ? data.name : data; // Safeguard for both object and string
+    const playerName = typeof data === 'object' ? data.name : data; 
 
     if (!playerName || gameState.gameStarted) {
       socket.emit('joinError', 'Unable to join: Game has already started or name missing.');
@@ -131,10 +126,8 @@ io.on('connection', (socket) => {
     const player = { id: socket.id, name: playerName, hand: [] };
     gameState.players.push(player);
     console.log(`${playerName} joined the game`);
-    // Optionally, send updated gameState to all players
     io.emit('updateGameState', gameState);
 
-    // Confirm joining to the player
     socket.emit('joinSuccess', { playerName });
   });
 
@@ -178,8 +171,8 @@ io.on('connection', (socket) => {
   
     // Discard the card and notify all clients
     gameState.discardPile.push(player.hand.splice(index, 1)[0]);
-    io.emit('updateDiscardPile', gameState.discardPile); // Notify all clients about the updated discard pile
-    io.to(socket.id).emit('updateHand', player.hand); // Update the player with their new hand
+    io.emit('updateDiscardPile', gameState.discardPile); 
+    io.to(socket.id).emit('updateHand', player.hand); 
   });
 
 
@@ -190,18 +183,14 @@ io.on('connection', (socket) => {
         return;
     }
 
-    // Combine the hand card with selected table cards for validation
     if (!isValidPlay([handCard, ...tableCards])) {
         socket.emit('playError', 'Invalid continuation play');
         return;
     }
 
-    // If valid, add the hand card to the player's table
     gameState.playerTables[socket.id].push(handCard);
-    // Remove the hand card from the player's hand
     player.hand = player.hand.filter(card => card !== handCard);
 
-    // Update all clients with the new game state
     io.emit('updateGameState', gameState);
 });
 
@@ -216,12 +205,12 @@ io.on('connection', (socket) => {
         return;
     }
 
-    // Step 1: Prepare cards from the discard pile for the play
+ 
     const discardCardsToPlay = discardIndices
         .map(index => gameState.discardPile[index])
         .filter(card => card !== undefined);
 
-    // Step 2: Validate the play using both hand cards and selected discard pile cards
+  
     if (!isValidPlay([...handCards, ...discardCardsToPlay])) {
         socket.emit('playError', 'Invalid play');
         return;
@@ -232,10 +221,9 @@ io.on('connection', (socket) => {
     player.hand = player.hand.filter(handCard => 
         !handCards.some(cardToPlay => cardToPlay.value === handCard.value && cardToPlay.suit === handCard.suit));
 
-    // For discard pile, identify the minimum index and adjust the pile if necessary
+  
     if (discardIndices.length > 0) {
         const minIndex = Math.min(...discardIndices);
-        // This assumes the game rule that all cards after the selected one are also taken
         gameState.discardPile.splice(minIndex); // Remove these cards from the discard pile
     }
 
@@ -260,6 +248,6 @@ io.on('connection', (socket) => {
 });
 
 
-server.listen(PORT, '0.0.0.0', () => { // Bind server to 0.0.0.0
+server.listen(PORT, '0.0.0.0', () => { 
   console.log(`Server running on port ${PORT}`);
 });
